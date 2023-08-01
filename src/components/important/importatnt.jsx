@@ -1,12 +1,17 @@
-import React from "react";
-import AddImportantTask from "./addImportantTask";
+import React, { useEffect } from "react";
+import AddTask from "./addInobx/addTask";
+import InboxCard from "./card/inboxCard";
+// import AddImportantTask from "./addImportantTask";
 
 function Importatnt() {
+  useEffect(() => {
+    document.title = "maham - Important";
+  }, []);
   return (
-    <div>
-      <AddImportantTask />
+    <div className="flex flex-col  overflow-hidden ">
+      <AddTask />
+      <InboxCard />
     </div>
   );
 }
-
 export default Importatnt;

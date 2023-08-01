@@ -1,10 +1,51 @@
 .open {
   width: 25%;
 }
+
 body {
   font-family: "Roboto", sans-serif;
 }
+
 .close {
   width: 100px;
   align-items: center;
+}
+@media (max-width: 640px) {
+  .second {
+    width: 0;
+  }
+}
+img {
+  user-select: none;
+}
+
+.checkbox::after {
+  content: "✔";
+  position: absolute;
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff4d39;
+  display: none;
+}
+.Comcheckbox::after {
+  content: "✔";
+  position: absolute;
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+
+.checkbox:hover::after {
+  display: block;
+}
+.task {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }

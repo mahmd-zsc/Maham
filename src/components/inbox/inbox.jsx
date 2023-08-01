@@ -1,10 +1,15 @@
-import React from "react";
-import AddTask from "./addTask";
+import React, { useEffect } from "react";
+import AddTask from "./addInobx/addTask";
+import InboxCard from "./card/inboxCard";
 
 function Inbox() {
+  useEffect(() => {
+    document.title = " maham - Inbox";
+  }, []);
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col  flex-1 overflow-hidden ">
       <AddTask />
+      <InboxCard />
     </div>
   );
 }

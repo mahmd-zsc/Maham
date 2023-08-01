@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import InboxCard from "./card/inboxCard";
 
 function Completed() {
-  return <div>
-    
-  </div>;
+  useEffect(() => {
+    document.title = " maham - Completed";
+  }, []);
+  return (
+    <div className="completed overflow-y-scroll">
+      <InboxCard />
+    </div>
+  );
 }
 
 export default Completed;

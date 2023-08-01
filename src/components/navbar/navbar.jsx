@@ -5,7 +5,9 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import ListOfNav from "./ListOfNav";
 function Navbar() {
   let [width, setWidth] = useState(true);
-
+  let handleShot = () => {
+    // nav.current.classList.add("open");
+  };
   let nav = useRef();
   let handleOpen = () => {
     if (width) {
@@ -19,9 +21,9 @@ function Navbar() {
   return (
     <div
       ref={nav}
-      className="navbar h-full w-full sm:w-1/4 bg-stone-900  flex flex-col gap-10 py-10 duration-500 "
+      className={`navbar h-full w-full sm:w-1/4 bg-stone-900  flex flex-col gap-10 py-10 duration-500  `}
     >
-      <Logo open={width} hadle={handleOpen} />
+      <Logo open={width} hadle={handleOpen} handleShot={handleShot} />
       <ListOfNav width={width} />
       <div className="line h-[1px] w-full bg-gray-400"></div>
       <div className="logout px-4 flex gap-4 cursor-pointer mt-auto ">

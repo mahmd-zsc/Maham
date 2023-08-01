@@ -1,0 +1,6 @@
+export let ADD_TASK = "ADD_TASK";
+export let REMOVE_TASK = "REMOVE_TASK";
+export let EDIT_TASK = "EDIT_TASK";
+export let MAKE_COMPLETED = "MAKE_COMPLETED";
+export let MAKE_TODAY = "MAKE_TODAY";
+export let MAKE_TASK_TO_IMPORTANT = "MAKE_TASK_TO_IMPORTANT";
