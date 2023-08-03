@@ -4,9 +4,12 @@ import BaseAdd from "./baseAdd";
 import InputInbox from "./InputInbox";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import * as actions from "../../redux/action";
+import { set } from "date-fns";
 function AddTask() {
   let [text, setText] = useState();
   let [date, setDate] = useState(null);
+  let [repeat, setRepeat] = useState(null);
+  let [notification, setNotification] = useState(null);
   let dispatch = useDispatch();
   let select = useSelector((state) => state.inboxTask);
 
@@ -16,11 +19,20 @@ function AddTask() {
   let handleDate = (d) => {
     setDate(d);
   };
+  let handleRepeat = (d) => {
+    setRepeat(d);
+  };
+  let handleNotification = (d) => {
+    setNotification(d);
+  };
   let sendTask = (e) => {
     e.preventDefault();
     if (text && text.length !== 0) {
       dispatch(actions.addTask(task));
       setText("");
+      setDate(false);
+      setRepeat(false);
+      setNotification(false);
     }
   };
   let task = {
@@ -28,8 +40,9 @@ function AddTask() {
     today: false,
     text: text,
     important: false,
-    repeat: false,
+    repeat: repeat,
     date: date,
+    notification: notification,
     reminder: false,
     completed: false,
   };
@@ -42,7 +55,15 @@ function AddTask() {
         action="#"
       >
         <InputInbox text={text} handleText={handleSetText} />
-        <BaseAdd text={text} send={sendTask} handleDate={handleDate} />
+        <BaseAdd
+          text={text}
+          send={sendTask}
+          handleDate={handleDate}
+          handleRepeat={handleRepeat}
+          handleNotification={handleNotification}
+          task={task}
+          date={date}
+        />
       </form>
     </div>
   );

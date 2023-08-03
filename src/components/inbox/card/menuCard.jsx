@@ -4,14 +4,25 @@ import Important from "./menu/important";
 import Completed from "./menu/completed";
 import Remove from "./menu/remove";
 
-function MenuCard({ show, task, mouseX, mouseY }) {
+function MenuCard({ show, setShow, task, mouseX, mouseY }) {
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!menu.current.contains(e.target)) {
+        menu.current.classList.add("hidden");
+        setShow(false);
+      }
+    };
+    window.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      window.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
   let menu = useRef();
 
   let hiddenUL = () => {
     menu.current.classList.add("hidden");
-  };
-  let toggleUL = () => {
-    menu.current.classList.toggle("hidden");
   };
   const windowWidth = window.innerWidth;
   const maxLeft = Math.min(windowWidth - 60, mouseX);

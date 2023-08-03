@@ -12,11 +12,18 @@ function Card({ task }) {
   let [mouseY, setMouseY] = useState();
   let [mouseX, setMouseX] = useState();
   let dispatch = useDispatch();
+  let card = useRef();
+  window.addEventListener("contextmenu", (e) => {
+    if (card.current === e.target) {
+    } else {
+      setShow(false);
+    }
+  });
   const sound = new Howl({
     src: [chickSound],
     volume: 0.5,
   });
-  let handleCheck = () => {
+  let handleCheck = (e) => {
     dispatch(actions.makeCompleted(task));
     sound.play();
   };
@@ -30,14 +37,13 @@ function Card({ task }) {
     const mouseY = e.clientY - rect.top;
     setMouseX(mouseX);
     setMouseY(mouseY);
-    console.log(mouseX);
     setShow(!show);
     e.preventDefault();
   };
   return (
     <div
       onContextMenu={(e) => showMenu(e)}
-      ref={task}
+      ref={card}
       className="task flex relative  px-6 py-4 shadow-sm rounded-md bg-white justify-between items-center cursor-pointer hover:bg-gray-200 duration-300   "
     >
       <div className="flex items-center gap-2">
@@ -48,7 +54,13 @@ function Card({ task }) {
         <p>{task.text}</p>
       </div>
       <Star task={task} handleStart={handleStart} />
-      <MenuCard show={show} task={task} mouseX={mouseX} mouseY={mouseY} />
+      <MenuCard
+        show={show}
+        setShow={setShow}
+        task={task}
+        mouseX={mouseX}
+        mouseY={mouseY}
+      />
     </div>
   );
 }

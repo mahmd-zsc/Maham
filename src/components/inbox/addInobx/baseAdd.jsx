@@ -1,6 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import bell from "../../images/icons/planning.png";
-function BaseAdd({ send, text, handleDate }) {
+import Date from "./date";
+import Repeate from "./repeate";
+import Notification from "./notification";
+function BaseAdd({
+  send,
+  text,
+  handleDate,
+  task,
+  date,
+  handleRepeat,
+  handleNotification,
+}) {
   let add = useRef();
   useEffect(() => {
     if (text && text.length > 0) {
@@ -10,16 +20,11 @@ function BaseAdd({ send, text, handleDate }) {
     }
   }, [text]);
   return (
-    <div className="w-full relative h-10 px-6 items-center justify-between bg-gray-200 flex  ">
-      <div className="flex items-center">
-        <img className="w-5 h-5 cursor-pointer absolute" src={bell} alt="" />
-        <input
-          onChange={(d) => handleDate(d.target.value)}
-          className="w-5 h-5 bg-transparent outline-none cursor-pointer opacity-0"
-          type="date"
-          name=""
-          id=""
-        />
+    <div className="w-full relative h-10 px-6 items-center justify-between bg-gray-200 flex   ">
+      <div className="flex items-center gap-5">
+        <Date task={task} handleDate={handleDate} closeCheck={date} />
+        <Repeate task={task} handleRepeat={handleRepeat} />
+        <Notification task={task} handleNotification={handleNotification} />
       </div>
       <input
         ref={add}

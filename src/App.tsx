@@ -13,7 +13,7 @@ import Assigned from "./components/assigned/assigned";
 
 function App() {
   return (
-    <div className="App flex h-screen overflow-hidden">
+    <div className="App flex h-screen ">
       <BrowserRouter>
         <Navbar />
         <div className=" second flex flex-col flex-1 px-4 sm:px-10 bg-[#eee] ">

@@ -7,11 +7,11 @@ function Inbox() {
     document.title = " maham - Inbox";
   }, []);
   return (
-    <div className="flex flex-col  flex-1 overflow-hidden ">
+    <div className="flex flex-col  flex-1  ">
       <AddTask />
       <InboxCard />
     </div>
   );
 }
-
+// #9ca3af
 export default Inbox;
