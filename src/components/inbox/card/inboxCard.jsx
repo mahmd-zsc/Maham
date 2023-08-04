@@ -7,7 +7,7 @@ function InboxCard() {
 
   return (
 
-      <div className="tasks flex  flex-col gap-2 flex-1 overflow-y-scroll my-5">
+      <div className="tasks flex  flex-col gap-2 flex-1  my-5">
         {tasks
           .filter((t) => !t.completed)
           .map((t) => (

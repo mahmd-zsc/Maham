@@ -10,7 +10,7 @@ function Remove({ task }) {
   return (
     <li
       onClick={handleRemove}
-      className="flex px-4 py-4 gap-2 items-center hover:bg-gray-200 duration-500  "
+      className="flex px-4 py-4 gap-2 items-center hover:bg-gray-300 duration-500  "
     >
       <img
         className="w-5 h-5 "

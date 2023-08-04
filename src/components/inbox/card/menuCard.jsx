@@ -24,14 +24,20 @@ function MenuCard({ show, setShow, task, mouseX, mouseY }) {
   let hiddenUL = () => {
     menu.current.classList.add("hidden");
   };
+
   const windowWidth = window.innerWidth;
-  const maxLeft = Math.min(windowWidth - 60, mouseX);
+  const menuWidth = 60; // You may need to adjust this based on your styling
+  const maxLeft = Math.min(windowWidth - menuWidth, mouseX);
+
+  // Calculate the distance between the MenuCard and the right edge of the page
+  const distanceToRight = windowWidth - maxLeft - menuWidth;
+
   return (
     <ul
       style={{ left: maxLeft, top: mouseY }}
       onClick={hiddenUL}
       ref={menu}
-      className={`taskMenu absolute w-60 bg-white rounded-md capitalize shadow-2xl z-20  ${
+      className={`taskMenu absolute w-60  bg-gray-100 rounded-md capitalize shadow-2xl  z-20  ${
         show ? "block" : "hidden"
       }`}
     >

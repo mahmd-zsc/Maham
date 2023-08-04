@@ -6,6 +6,7 @@ import Star from "./star";
 import MenuCard from "./menuCard";
 import { Howl } from "howler";
 import { set } from "date-fns";
+import Test from "./test";
 
 function Card({ task }) {
   let [show, setShow] = useState(false);
@@ -44,14 +45,14 @@ function Card({ task }) {
     <div
       onContextMenu={(e) => showMenu(e)}
       ref={card}
-      className="task flex relative  px-6 py-4 shadow-sm rounded-md bg-white justify-between items-center cursor-pointer hover:bg-gray-200 duration-300   "
+      className="task flex relative h-16  px-6 py-4 shadow-sm rounded-md bg-white justify-between items-center cursor-pointer hover:bg-gray-200 duration-300   "
     >
       <div className="flex items-center gap-2">
         <div
           onClick={handleCheck}
           className="checkbox w-5 h-5 relative rounded-full border-2 border-mainRed opacity-40 cursor-pointer"
         ></div>
-        <p>{task.text}</p>
+        <Test task={task} />
       </div>
       <Star task={task} handleStart={handleStart} />
       <MenuCard
