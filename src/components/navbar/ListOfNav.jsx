@@ -13,7 +13,7 @@ import Inbox from "../inbox/inbox";
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 function ListOfNav({ width }) {
-  let task = useSelector((state) => state.inboxTask);
+  let task = useSelector((state) => state.task.inboxTask);
   let list = [
     {
       title: "today",

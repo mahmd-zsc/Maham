@@ -6,7 +6,18 @@ function Notification() {
   let handleClick = () => {
     not.current.classList.toggle("hidden");
   };
-
+  useEffect(() => {
+    // Handle click events outside the dropdown list and notification icon
+    const handleOutsideClick = (e) => {
+      if (!not.current.contains(e.target) && !img.current.contains(e.target)) {
+        not.current.classList.add("hidden");
+      }
+    };
+    window.addEventListener("click", handleOutsideClick);
+    return () => {
+      window.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
   return (
     <div className=" relative">
       <img
@@ -18,7 +29,7 @@ function Notification() {
       />
       <div
         ref={not}
-        className="notBox absolute w-40 h-40 shadow-lg bg-gray-100 rounded-md  right-0 top-10 hidden "
+        className="notBox absolute w-52 h-72 shadow-lg bg-gray-200 rounded-md  right-0 top-10 hidden z-50 "
       ></div>
     </div>
   );

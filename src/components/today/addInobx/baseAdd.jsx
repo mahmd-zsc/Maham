@@ -1,21 +1,42 @@
 import React, { useEffect, useRef } from "react";
+import Date from "./date"; // Importing a component named 'Date'
+import Repeate from "./repeate"; // Importing a component named 'Repeate'
+import Notification from "./notification"; // Importing a component named 'Notification'
 
-function BaseAdd({ send, text }) {
+function BaseAdd({
+  send,
+  text,
+  handleDate,
+  task,
+  date,
+  handleRepeat,
+  handleNotification,
+}) {
   let add = useRef();
+
+  // useEffect hook to update the appearance of the 'Add' button based on the text input
   useEffect(() => {
     if (text && text.length > 0) {
-      add.current.classList.add("text-mainRed");
+      add.current.classList.add("text-mainRed"); // Add a CSS class for styling
     } else {
-      add.current.classList.remove("text-mainRed");
+      add.current.classList.remove("text-mainRed"); // Remove the CSS class if no text
     }
   }, [text]);
+
   return (
-    <div className="w-full h-10 px-6 items-center justify-between bg-gray-200 flex  ">
-      <div></div>
+    <div className="w-full relative h-10 px-6 items-center justify-between bg-gray-200 flex">
+      <div className="flex items-center gap-5">
+        {/* Rendering the 'Date' component and passing necessary props */}
+        <Date task={task} handleDate={handleDate} closeCheck={date} />
+        {/* Rendering the 'Repeate' component and passing necessary props */}
+        <Repeate task={task} handleRepeat={handleRepeat} />
+        {/* Rendering the 'Notification' component and passing necessary props */}
+        <Notification task={task} handleNotification={handleNotification} />
+      </div>
       <input
         ref={add}
-        onClick={send}
-        className=" border border-gray-300 px-2 py-1 text-sm w-fit h-fit cursor-pointer bg-white rounded-sm text-gray-400 "
+        onClick={send} // Triggering the 'send' function when the button is clicked
+        className="border border-gray-300 px-2 py-1 text-sm w-fit h-fit cursor-pointer bg-white rounded-sm text-gray-400"
         type="submit"
         value="Add"
       />
@@ -23,4 +44,5 @@ function BaseAdd({ send, text }) {
   );
 }
 
+// Exporting the 'BaseAdd' component as the default export
 export default BaseAdd;

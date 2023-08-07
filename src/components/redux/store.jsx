@@ -1,5 +1,6 @@
 import React from "react";
 import { createStore } from "redux";
-import InboxReducer from "./inboxReducer";
+import TaskReducer from "./task/taskReducer";
+import RootReducer from "./rootReducer";
 
-export let Store = createStore(InboxReducer);
+export let Store = createStore(RootReducer);

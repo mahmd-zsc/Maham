@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <div
       ref={nav}
-      className={`navbar h-full w-full sm:w-1/4 bg-stone-900  flex flex-col gap-10 py-10 duration-500  `}
+      className={`navbar h-full w-full sm:w-1/4 bg-black  flex flex-col gap-10 py-10 duration-500  `}
     >
       <Logo open={width} hadle={handleOpen} handleShot={handleShot} />
       <ListOfNav width={width} />

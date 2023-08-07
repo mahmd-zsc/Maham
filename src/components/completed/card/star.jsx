@@ -1,27 +1,30 @@
 import React from "react";
-import star from "./icons/star.png";
-import starFull from "./icons/star-full.png";
+import star from "./icons/star.png"; // Import the outline star icon
+import starFull from "./icons/star-full.png"; // Import the filled star icon
+
+// Definition of the Star component
 function Star({ task, handleStart }) {
   return (
     <>
-      {task.important && (
+      {task.important && ( // If the task is marked as important
         <img
-          onClick={handleStart}
-          className="w-4 h-4 cursor-pointer"
-          src={starFull}
-          alt="starFull"
+          onClick={handleStart} // Trigger the handleStart function when clicked
+          className="w-4 h-4 cursor-pointer" // Apply styling for cursor and size
+          src={starFull} // Display the filled star icon
+          alt="starFull" // Alternative text for accessibility
         />
       )}
-      {!task.important && (
+      {!task.important && ( // If the task is not marked as important
         <img
-          onClick={handleStart}
-          className="w-4 h-4 cursor-pointer"
-          src={star}
-          alt="starFull"
+          onClick={handleStart} // Trigger the handleStart function when clicked
+          className="w-4 h-4 cursor-pointer" // Apply styling for cursor and size
+          src={star} // Display the outline star icon
+          alt="starFull" // Alternative text for accessibility (should be updated)
         />
       )}
     </>
   );
 }
 
+// Export the Star component as the default export
 export default Star;

@@ -5,7 +5,7 @@ import search from "../images/icons/search.png";
 function Search() {
   
   return (
-    <form className="flex items-center gap-2  bg-gray-100 py-2 px-2 rounded-md flex-1" action="">
+    <form className="flex items-center gap-2  bg-gray-100 py-2 px-2 rounded-md flex-1 invisible" action="">
       <img className="w-5 opacity-40" src={search} alt="" />
       <input
         type="text"

@@ -4,7 +4,7 @@ let initialState = {
   inboxTask: [],
 };
 
-let InboxReducer = (state = initialState, action) => {
+let TaskReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions_type.ADD_TASK:
       return {
@@ -60,4 +60,4 @@ let InboxReducer = (state = initialState, action) => {
   }
 };
 
-export default InboxReducer;
+export default TaskReducer;
