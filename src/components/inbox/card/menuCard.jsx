@@ -47,7 +47,7 @@ function MenuCard({ show, setShow, task, mouseX, mouseY }) {
       style={{ left: maxLeft, top: mouseY }}
       onClick={hiddenUL} // When the menu is clicked, hide it
       ref={menu} // Attach the ref to the menu DOM element
-      className={`taskMenu flex flex-col absolute w-52 bg-gray-200 rounded-md capitalize shadow-lg  z-20 gap-[2px]  ${
+      className={`taskMenu flex flex-col absolute w-52 bg-gray-200 dark:bg-LightDark dark:border dark:border-lightBlue rounded-md overflow-hidden capitalize shadow-sm  z-20 gap-[2px]  ${
         show ? "block" : "hidden" // Show or hide the menu based on the 'show' prop
       }`}
     >

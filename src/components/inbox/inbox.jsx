@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AddTask from "./addInobx/addTask"; // Import the AddTask component
 import InboxCard from "./card/inboxCard"; // Import the InboxCard component
-import inboxImg from "../images/icons/inbox-red.png"; // Import the inbox icon image
+import inboxImg from "../images/icons/mainRed/inbox-red.png"; // Import the inbox icon image
 
 // Definition of the Inbox component
 function Inbox() {

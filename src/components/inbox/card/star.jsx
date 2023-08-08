@@ -1,6 +1,6 @@
 import React from "react";
-import star from "./icons/star.png"; // Import the outline star icon
-import starFull from "./icons/star-full.png"; // Import the filled star icon
+import star from "../../images/icons/mainRed/star.png"; // Import the outline star icon
+import starFull from "../../images/icons/mainRed/star-full.png"; // Import the filled star icon
 
 // Definition of the Star component
 function Star({ task, handleStart }) {

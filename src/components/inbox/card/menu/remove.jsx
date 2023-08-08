@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "../../../images/icons/trash.png"; // Import the trash icon image
+import Img from "../../../images/icons/mainRed/trash.png"; // Import the trash icon image
 import { useDispatch } from "react-redux"; // Import useDispatch from react-redux
 import { removeTask } from "../../../redux/task/action"; // Import the removeTask action
 
@@ -16,14 +16,14 @@ function Remove({ task }) {
   return (
     <li
       onClick={handleRemove} // When clicked, remove the task
-      className="flex px-4 py-4 gap-2 items-center bg-gray-100 hover:bg-gray-300 duration-500"
+      className="flex px-4 py-4 gap-2 items-center bg-gray-100 hover:bg-gray-300 duration-500 dark:bg-secondDark dark:opacity-100 dark:text-white dark:hover:bg-mainDark"
     >
       <img
         className="w-5 h-5"
         src={Img}
         alt="Delete" // Display the trash icon for deletion
       />
-      <p className="opacity-60">Delete a task</p>{" "}
+      <p className="opacity-60 dark:opacity-100">Delete a task</p>
       {/* Display text indicating task deletion */}
     </li>
   );

@@ -1,10 +1,10 @@
-import notificationImg from "../../images/icons/notification.png"; // Importing an image file (not shown in code)
+import notificationImg from "../../images/icons/light-mood/notification.png"; // Importing an image file (not shown in code)
 import React, { useRef, useState, useEffect } from "react";
-import today from "../../images/icons/Notification/today.png"; // Importing an image file (not shown in code)
-import tomorrow from "../../images/icons/Notification/tomorrow.png"; // Importing an image file (not shown in code)
-import nextWeek from "../../images/icons/Notification/next-week.png"; // Importing an image file (not shown in code)
+import today from "../../images/icons/Notification/light/today.png"; // Importing an image file (not shown in code)
+import tomorrow from "../../images/icons/Notification/light/tomorrow.png"; // Importing an image file (not shown in code)
+import nextWeek from "../../images/icons/Notification/light/next-week.png"; // Importing an image file (not shown in code)
 
-import trash from "../../images/icons/trash.png"; // Importing an image file (not shown in code)
+import trash from "../../images/icons/mainRed/trash.png"; // Importing an image file (not shown in code)
 import { addDays, format, subDays } from "date-fns";
 
 function Notification({ handleNotification, task }) {
@@ -67,7 +67,7 @@ function Notification({ handleNotification, task }) {
         onClick={(e) => handleClick(e)}
         className={
           notification && task.notification
-            ? "flex items-center px-2 py-1 border border-gray-400 bg-gray-50 gap-1 rounded-sm shadow-md"
+            ? "flex items-center px-2 py-1 border border-gray-400 bg-gray-50 dark:bg-mainDark gap-1 rounded-sm shadow-md"
             : null
         }
       >
@@ -77,19 +77,19 @@ function Notification({ handleNotification, task }) {
 
       <ul
         ref={ul}
-        className={`menu absolute bg-gray-50 w-52 rounded-sm shadow-lg left-1/2 -translate-x-1/2 top-7 capitalize z-30 hidden `}
+        className={`menu absolute bg-gray-50 dark:bg-secondDark dark:border dark:border-lightBlue w-52 rounded-sm shadow-lg left-1/2 -translate-x-1/2 top-7 capitalize z-30 hidden `}
       >
         {/* Dropdown list header */}
-        <h3 className="px-4 py-4 text-center text-gray-600 font-bold">
+        <h3 className="px-4 py-4 text-center text-gray-600 dark:text-white font-bold">
           reminder
         </h3>
-        <div className="line bg-gray-200 h-[2px] "></div>
+        <div className="line bg-gray-200 dark:bg-LightDark h-[2px] "></div>
         {/* Iterate over the list of predefined notification options */}
         {list.map((li) => (
           <li
             key={li.text}
             onClick={(e) => handleChangeRepeat(li)}
-            className="px-4 py-2 flex items-center gap-2 hover:bg-gray-200 duration-300 cursor-pointer "
+            className="px-4 py-2 flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-mainDark duration-300 cursor-pointer "
           >
             <img className="w-5 h-5" src={li.img} alt={li.text} />
             <p className="text-gray-400 text-sm">{li.text}</p>
@@ -98,14 +98,14 @@ function Notification({ handleNotification, task }) {
 
         {/* Separator line */}
         <div
-          className={`line bg-gray-200 h-[2px] ${
+          className={`line bg-gray-200 dark:bg-LightDark h-[2px] ${
             !task.notification ? "hidden" : null
           }`}
         ></div>
         {/* Option to remove selected notification */}
         <li
           onClick={handleRemoveRepeat}
-          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 duration-300 ${
+          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-mainDark duration-300 ${
             !task.notification ? "hidden" : null
           } `}
         >

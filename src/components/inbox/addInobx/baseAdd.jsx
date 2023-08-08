@@ -24,7 +24,7 @@ function BaseAdd({
   }, [text]);
 
   return (
-    <div className="w-full relative h-10 px-6 items-center justify-between bg-gray-200 flex">
+    <div className="w-full relative h-10 px-6 items-center justify-between bg-gray-200 dark:bg-LightDark flex">
       <div className="flex items-center gap-5">
         {/* Rendering the 'Date' component and passing necessary props */}
         <Date task={task} handleDate={handleDate} closeCheck={date} />
@@ -36,7 +36,7 @@ function BaseAdd({
       <input
         ref={add}
         onClick={send} // Triggering the 'send' function when the button is clicked
-        className="border border-gray-300 px-2 py-1 text-sm w-fit h-fit cursor-pointer bg-white rounded-sm text-gray-400"
+        className="border-2 border-gray-300  px-2 py-1 text-sm w-fit h-fit cursor-pointer bg-white dark:bg-mainDark dark:border-lightBlue rounded-sm text-gray-400"
         type="submit"
         value="Add"
       />

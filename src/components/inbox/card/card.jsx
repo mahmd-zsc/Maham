@@ -66,12 +66,12 @@ function Card({ task }) {
     <div
       onContextMenu={(e) => showMenu(e)} // Show context menu on right-click
       ref={card} // Set the card ref for the event listener
-      className="task flex relative h-16 px-6 py-4 shadow-sm rounded-md bg-white justify-between items-center cursor-pointer hover:bg-gray-200 duration-300"
+      className="task flex relative h-16 px-6 py-4 shadow-sm rounded-md bg-white dark:bg-secondDark dark:border dark:border-lightBlue justify-between items-center cursor-pointer hover:bg-gray-200 duration-300"
     >
       <div className="flex items-center gap-2">
         <div
           onClick={handleCheck} // Handle checkbox click
-          className="checkbox w-5 h-5 relative rounded-full border-2 border-mainRed opacity-40 cursor-pointer"
+          className="checkbox w-5 h-5 relative rounded-full border-2 border-mainRed opacity-40 dark:opacity-100 cursor-pointer"
         ></div>
         <Text task={task} /> {/* Render Text component */}
       </div>

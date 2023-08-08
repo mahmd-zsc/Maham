@@ -2,7 +2,7 @@ import * as actions_type from "./typeOfAction";
 
 // Make sure to set a default mode value here if localStorage.getItem("mode") returns null or undefined.
 let initialState = {
-  mode: localStorage.getItem("mode") || "default_mode",
+  mode: JSON.parse(localStorage.getItem("mode") || true),
 };
 
 let ModeReducer = (state = initialState, action) => {

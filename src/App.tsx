@@ -18,22 +18,20 @@ interface RootState {
 }
 function App() {
   const mode = useSelector((state: RootState) => state.mode.mode);
-  console.log(mode);
-
   return (
     <div
       className={`App flex h-screen overflow-hidden ${!mode ? "dark" : ""} `}
     >
       <BrowserRouter>
         <Navbar />
-        <div className="second flex flex-col flex-1 px-4 sm:px-10 bg-[#eee] dark:bg-[#041C32]">
+        <div className="second flex flex-col flex-1 px-4 sm:px-10 bg-[#eee] dark:bg-mainDark dark:text-white">
           <Header />
           <Routes>
             <Route path="/" element={<Inbox />} />
-            <Route path="/today" element={<Today />} />
+            {/* <Route path="/today" element={<Today />} />
             <Route path="/important" element={<Importatnt />} />
             <Route path="/completed" element={<Completed />} />
-            <Route path="/assigned" element={<Assigned />} />
+            <Route path="/assigned" element={<Assigned />} /> */}
           </Routes>
         </div>
       </BrowserRouter>

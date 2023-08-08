@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeMode } from "../redux/mode/action";
 
 function Mode() {
-  const dispatch = useDispatch(); // Use the useDispatch hook to get the dispatch function
-
-  const img = useRef();
+  const dispatch = useDispatch();
   const mode = useSelector((state) => state.mode.mode);
+
+  useEffect(() => {
+    window.localStorage.mode = mode;
+  }, [mode]);
+  const img = useRef();
 
   const handleMode = () => {
     dispatch(changeMode());

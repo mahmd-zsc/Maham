@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import repateImg from "../../images/icons/repeat.png"; // Importing an image file (not shown in code)
-import day from "../../images/icons/repate/1.png"; // Importing an image file (not shown in code)
-import daysOfWeek from "../../images/icons/repate/days.png"; // Importing an image file (not shown in code)
-import month from "../../images/icons/repate/30.png"; // Importing an image file (not shown in code)
-import week from "../../images/icons/repate/7.png"; // Importing an image file (not shown in code)
-import year from "../../images/icons/repate/365.png"; // Importing an image file (not shown in code)
-import customize from "../../images/icons/custome.png"; // Importing an image file (not shown in code)
-import trash from "../../images/icons/trash.png"; // Importing an image file (not shown in code)
+import repateImg from "../../images/icons/light-mood/repeat.png"; // Importing an image file (not shown in code)
+import day from "../../images/icons/repate/light/1.png"; // Importing an image file (not shown in code)
+import daysOfWeek from "../../images/icons/repate/light/days.png"; // Importing an image file (not shown in code)
+import month from "../../images/icons/repate/light/30.png"; // Importing an image file (not shown in code)
+import week from "../../images/icons/repate/light/7.png"; // Importing an image file (not shown in code)
+import year from "../../images/icons/repate/light/365.png"; // Importing an image file (not shown in code)
+import customize from "../../images/icons/light-mood/custome.png"; // Importing an image file (not shown in code)
+import trash from "../../images/icons/mainRed/trash.png"; // Importing an image file (not shown in code)
 import { addDays, format, subDays } from "date-fns";
 
 function DateSelector({ handleRepeat, task }) {
@@ -76,7 +76,7 @@ function DateSelector({ handleRepeat, task }) {
         onClick={(e) => handleClick(e)}
         className={
           repeat && task.repeat
-            ? "flex items-center px-2 py-1 border border-gray-400 bg-gray-50 gap-1 rounded-sm shadow-md"
+            ? "flex items-center px-2 py-1 border border-gray-400 bg-gray-50 dark:bg-mainDark gap-1 rounded-sm shadow-md"
             : null
         }
       >
@@ -86,19 +86,19 @@ function DateSelector({ handleRepeat, task }) {
 
       <ul
         ref={ul}
-        className={`menu absolute bg-gray-50 w-52 rounded-sm shadow-lg left-1/2 -translate-x-1/2 top-7 capitalize z-30 hidden `}
+        className={`menu absolute bg-gray-50 dark:bg-secondDark dark:border dark:border-lightBlue w-52 rounded-sm shadow-lg left-1/2 -translate-x-1/2 top-7 capitalize z-30 hidden `}
       >
         {/* Dropdown list header */}
-        <h3 className="px-4 py-4 text-center text-gray-600 font-bold">
+        <h3 className="px-4 py-4 text-center text-gray-600 dark:text-white font-bold">
           repeat
         </h3>
-        <div className="line bg-gray-200 h-[2px] "></div>
+        <div className="line bg-gray-200 dark:bg-LightDark h-[2px] "></div>
         {/* Iterate over the list of predefined repeat options */}
         {list.map((li) => (
           <li
             key={li.text}
             onClick={(e) => handleChangeRepeat(li)}
-            className="px-4 py-2 flex items-center gap-2 hover:bg-gray-200 duration-300 cursor-pointer "
+            className="px-4 py-2 flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-mainDark duration-300 cursor-pointer "
           >
             <img className="w-5 h-5" src={li.img} alt={li.text} />
             <p className="text-gray-400 text-sm">{li.text}</p>
@@ -106,11 +106,11 @@ function DateSelector({ handleRepeat, task }) {
         ))}
 
         {/* Separator line */}
-        <div className={`line bg-gray-200 h-[2px]`}></div>
+        <div className={`line bg-gray-200 dark:bg-LightDark h-[2px]`}></div>
         {/* Option to customize repeat */}
         <li
           onClick={() => handleRemoveRepeat()}
-          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 duration-300 
+          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-mainDark duration-300 
            
            `}
         >
@@ -121,14 +121,14 @@ function DateSelector({ handleRepeat, task }) {
         </li>
         {/* Separator line */}
         <div
-          className={`line bg-gray-200 h-[2px] ${
+          className={`line bg-gray-200 dark:bg-LightDark h-[2px] ${
             !task.repeat ? "hidden" : null
           }`}
         ></div>
         {/* Option to remove repeat */}
         <li
           onClick={handleRemoveRepeat}
-          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 duration-300 ${
+          className={`px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-mainDark duration-300 ${
             !task.repeat ? "hidden" : null
           } `}
         >

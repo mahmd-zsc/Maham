@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import bell from "../images/icons/bell.png";
+import light from "../images/icons/light-mood/bell.png";
+import dark from "../images/icons/dark-mode/bell.png";
+import { useSelector } from "react-redux";
 function Notification() {
   let not = useRef();
   let img = useRef();
@@ -18,18 +20,19 @@ function Notification() {
       window.removeEventListener("click", handleOutsideClick);
     };
   }, []);
+  let mode = useSelector((state) => state.mode.mode);
   return (
     <div className=" relative">
       <img
         onClick={handleClick}
         ref={img}
         className="bellImg w-6  cursor-pointer"
-        src={bell}
+        src={mode ? light : dark}
         alt="bell"
       />
       <div
         ref={not}
-        className="notBox absolute w-52 h-72 shadow-lg bg-gray-200 rounded-md  right-0 top-10 hidden z-50 "
+        className="notBox absolute w-52 h-72 shadow-lg bg-gray-200 dark:bg-mainDark dark:border dark:border-lightBlue rounded-md  right-0 top-10 hidden z-50 "
       ></div>
     </div>
   );

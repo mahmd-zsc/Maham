@@ -62,10 +62,10 @@ function AddTask() {
   };
 
   return (
-    <div>
+    <div className=" ">
       <form
         onSubmit={(e) => e.defaultPrevented()} // Preventing default form submission
-        className="flex-1 bg-gray-100 rounded-md shadow-lg"
+        className="flex-1 bg-gray-100 dark:bg-secondDark    shadow-lg "
         action="#"
       >
         {/* Rendering a component 'InputInbox' and passing necessary props */}

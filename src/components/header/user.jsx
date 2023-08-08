@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import user from "../images/icons/user.png";
+import user from "../images/icons/mainRed/user.png";
 
 function User() {
   let not = useRef();
