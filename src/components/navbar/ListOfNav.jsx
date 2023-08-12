@@ -9,7 +9,7 @@ import today_dark from "../images/icons/light-mood/today.png";
 import important_dark from "../images/icons/light-mood/important.png";
 import upcaming_dark from "../images/icons/light-mood/planning.png";
 import completed_dark from "../images/icons/light-mood/completed.png";
-import Inbox from "../inbox/inbox";
+import Inbox from "../inbox";
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 function ListOfNav({ width }) {
@@ -69,19 +69,25 @@ function ListOfNav({ width }) {
           } `}
         >
           <NavLink
-            className="flex items-center justify-between w-full  gap-6"
+            className="flex items-center justify-between w-full gap:2 md:gap-6"
             to={li.to}
           >
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-1 md:gap-4 items-center">
               <img
-                className="w-5 h-5 opacity-60"
+                className="w-4 lg:w-5  opacity-60"
                 src={mode ? li.icon_white : li.icon_dark}
                 alt="icon"
               />
-              {width && <p className="text-gray-400 capitalize">{li.title}</p>}
+              {width && (
+                <p className="text-gray-400 text-sm  md:text-md  capitalize">
+                  {li.title}
+                </p>
+              )}
             </div>
             {width && (
-              <p className="number text-gray-600 text-sm">{li.number}</p>
+              <p className="number text-gray-400 text-xs lg:text-sm">
+                {li.number}
+              </p>
             )}
           </NavLink>
         </li>

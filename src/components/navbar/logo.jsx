@@ -23,7 +23,7 @@ function Logo({ open, hadle, handleShot }) {
       {open && (
         <img
           onClick={() => navigator("/today")}
-          className=" w-40 cursor-pointer "
+          className=" w-28 lg:w-40 cursor-pointer "
           src={mode ? logoDark : logoWhite}
           alt="logo"
         />

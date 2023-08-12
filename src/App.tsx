@@ -1,37 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Inbox from "./components/inbox/inbox";
-import Today from "./components/today/today";
-import Importatnt from "./components/important/importatnt";
-import Completed from "./components/completed/completed";
-import Upcoming from "./components/assigned/assigned"; // Corrected typo in import
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Inbox from "./components/inbox";
+import Today from "./components/today";
+import Importatnt from "./components/importatnt";
+import Completed from "./components/completed";
+import Assigned from "./components/assigned"; // Corrected typo in import
 import Navbar from "./components/navbar/navbar";
 import Header from "./components/header/Header";
-import { Provider, useSelector } from "react-redux";
-import Assigned from "./components/assigned/assigned";
+import { Provider, useDispatch, useSelector } from "react-redux";
+
+import axios from "axios";
+
 interface RootState {
   mode: {
-    mode: boolean;
+    mode?: boolean;
   };
-  // Other reducers...
+  task: {
+    inboxTask: any;
+  };
 }
+
 function App() {
   const mode = useSelector((state: RootState) => state.mode.mode);
+  const task = useSelector((state: RootState) => state.task.inboxTask);
+  useEffect(() => {
+    window.localStorage.task = JSON.stringify(task);
+  }, [task]);
   return (
     <div
       className={`App flex h-screen overflow-hidden ${!mode ? "dark" : ""} `}
     >
       <BrowserRouter>
         <Navbar />
-        <div className="second flex flex-col flex-1 px-4 sm:px-10 bg-[#eee] dark:bg-mainDark dark:text-white">
+
+        <div className="second flex flex-col flex-1 px-4 sm:px-10 bg-[#eae9e9] dark:bg-mainDark dark:text-white">
           <Header />
+
           <Routes>
             <Route path="/" element={<Inbox />} />
-            {/* <Route path="/today" element={<Today />} />
+            <Route path="/today" element={<Today />} />
             <Route path="/important" element={<Importatnt />} />
             <Route path="/completed" element={<Completed />} />
-            <Route path="/assigned" element={<Assigned />} /> */}
+            <Route path="/assigned" element={<Assigned />} />
           </Routes>
         </div>
       </BrowserRouter>

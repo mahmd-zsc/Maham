@@ -1,7 +1,7 @@
 import * as actions_type from "./typeOfAction";
 
 let initialState = {
-  inboxTask: [],
+  inboxTask: JSON.parse(window.localStorage.task) || [],
 };
 
 let TaskReducer = (state = initialState, action) => {
