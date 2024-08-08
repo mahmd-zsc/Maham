@@ -1,6 +1,7 @@
-import React from "react";
+// store.js
 import { createStore } from "redux";
-import TaskReducer from "./task/taskReducer";
-import RootReducer from "./rootReducer";
+import rootReducer from "./rootReducer";
 
-export let Store = createStore(RootReducer);
+const store = createStore(rootReducer);
+
+export default store;

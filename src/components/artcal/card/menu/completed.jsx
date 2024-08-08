@@ -13,14 +13,16 @@ function Completed({ task }) {
     src: [chickSound], // Sound effect source
     volume: 0.5, // Set the volume
   });
-
+  console.log(task);
   // Get the dispatch function from Redux
   let dispatch = useDispatch();
   let mode = useSelector((state) => state.mode.mode);
   // Function to handle marking a task as completed or incomplete
   let handleCompletd = () => {
-    sound.play(); // Play the sound effect
     dispatch(makeCompleted(task)); // Dispatch the makeCompleted action
+    if (!task.completed) {
+      sound.play(); // Play the sound effect
+    }
   };
 
   // Render the component
@@ -30,11 +32,9 @@ function Completed({ task }) {
       className="flex px-4 py-4 gap-2 items-center opacity-60 bg-gray-100 dark:bg-secondDark dark:opacity-100 dark:text-white dark:hover:bg-mainDark hover:bg-gray-300 duration-500"
     >
       <img className="w-5 h-5" src={mode ? light : dark} alt="" />{" "}
-      {/* Display the completed icon */}
-      {!task.Completed && <p>Mark completed</p>}{" "}
-      {/* Show text based on task completion status */}
-      {task.Completed && <p>Mark incomplete</p>}{" "}
-      {/* Show text based on task completion status */}
+      {task.completed ? <p>Remove complete</p> : <p>Make complete</p>}
+      {/* {!task.Completed && <p>Make completed</p>}
+       {task.Completed && <p>Remove complete</p>} */}
     </li>
   );
 }
